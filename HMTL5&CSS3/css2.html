@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0
+        }
+        html {
+            box-sizing: border-box;
+        }
+        *, *::after, *::before {
+            box-sizing: inherit;
+        }
+        .container {
+            display: flex;;
+            flex-direction: row;
+
+        }
+
+        .middle {
+            background-color: tomato;
+            order: 2; 
+            flex: 1
+        }
+
+        .left {
+            background-color: turquoise;
+            order: 1
+        }
+
+        .right {
+            background-color: wheat;
+            order: 3
+
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="middle">Middel</div>
+        <div class="left">Left</div>
+        <div class="right">Right</div>
+    </div>
+</body>
+</html>
