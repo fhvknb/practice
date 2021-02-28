@@ -5,8 +5,8 @@ const FULFILLED = 1;
 const REJECTED = 2;
 
 const isFunction = (fn) => typeof fn === 'function';
-const isObject = (obj) => obj !== null && typeof obj === 'object';
-const noop = () => {};
+// const isObject = (obj) => obj !== null && typeof obj === 'object';
+const noop = () => { };
 
 const nextTick = (fn) => setTimeout(fn, 0);
 
