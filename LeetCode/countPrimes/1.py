@@ -1,4 +1,6 @@
 
+#   寻找素数（又叫质数，一个大于1的自然数，除了1和它自身外，不能被其他自然数整除的数叫做质数）
+
 def countPrimes(n):
     isPrimes = [True] * n
 
@@ -16,16 +18,8 @@ def countPrimes(n):
                 j += i
 
         i += 1
-        
+
     print(isPrimes)
-    # count = 0
-    # k = 2
-    # while(k < n):
-    #     if isPrimes[k]:
-    #         count += 1
-    #     k += 1
-       
-    # print(count)
 
 
 countPrimes(10)

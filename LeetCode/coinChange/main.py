@@ -44,6 +44,6 @@ def coin_change3(coins, amount):
 
 # print(coin_change([1, 2, 5], 11)) 
 
-print(coin_change3([1,2,4,8, 16, 32, 64, 128, 256], 14))
+print(coin_change3([1,2,4,8, 16, 32, 64, 128, 256], 5))
 
 
