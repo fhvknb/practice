@@ -1,4 +1,4 @@
-var Generator = require("yeoman-generator");
+var Generator = require("yeoman-generator/lib");
 
 module.exports = class extends (
   Generator
