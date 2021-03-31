@@ -1,7 +1,6 @@
 import React from "react";
 
 import $ from "jquery";
-let { useCallback, useState, useEffect, memo } = React;
 
 let allData = [];
 

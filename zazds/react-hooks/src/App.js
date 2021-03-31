@@ -1,95 +1,59 @@
 // import logo from './logo.svg';
-import React from "react";
+import React, { Suspense } from "react";
 import $ from "jquery";
-
 import "./App.css";
-import VirtualList from './components/virtualList'
+// import VirtualList from "./components/virtualList";
+import UseHooks from "./components/useHooks";
+import EventLoop from "./components/eventLoop";
 
-let { useCallback, useState, useEffect, memo } = React;
+// const VirtualList = React.lazy(() => import("./components/virtualList"));
 
-// function Child() {}
-
-const listDataCache = {};
-
-const Child = memo((props) => {
-  console.log("render child!!!");
-  return [
-    <p key="1">count: {props.count}</p>,
-    <div key="2">
-      <button onClick={props.onClick}>Click</button>
-    </div>,
-  ];
+const OtherComponent = React.lazy(() => {
+  return new Promise((resolve, reject) => {
+    let Page = import("./components/virtualList");
+    setTimeout(() => {
+      resolve(Page);
+    }, 1000);
+  });
 });
 
-// const Child = (props) => {
-//   console.log("render child!!!");
-//   return [
-//     <p key="1">count: {props.count}</p>,
-//     <div key="2">
-//       <button onClick={props.onClick}>Click</button>
-//     </div>,
-//   ];
-// };
-
+let { useEffect, useState } = React;
 
 function App() {
-  let [name, setName] = useState("x");
-  let [count, setCount] = useState(0);
-  let [listData, setListData] = useState([]);
-  let [computedStyle, setComputedStyle] = useState(0);
+  const _tsetFunction = function () {
+    const obj = {
+      a: "11",
+      b: "22",
+    };
+    const arr = [1, 3, 4];
 
-  const callBack = function () {
-    // console.log("callback");
-    // setCount(++count);
-    setName(count);
+    for (let i in obj) {
+      console.log(i);
+    }
+    for (let j of arr) {
+      console.log(j);
+    }
+
+    console.log(Object.fromEntries([["a", "11"]]));
+    console.log(Object.entries(obj));
   };
 
-  const obj = {
-    a: "11",
-    b: "22",
+  const _loginTest = function () {
+    return new Promise((resolve, reject) => {});
   };
-
-  const arr = [1, 3, 4];
-  // obj.prototype.c = '333';
-
   useEffect(() => {
-    //  for(let i in obj) {
-    //    console.log(i)
-    //  }
-    // for (let j of arr) {
-    //   console.log(j);
-    // }
-    // console.log(Object.fromEntries([["a",'11']]))
-    // console.log(Object.entries(obj)
-
-    // console.log($);
-
-    // findDOMNode()
-
-  
-    // scrollRef.current.on
+    // _tsetFunction();
   }, []);
-
-  const memoizedCallback = useCallback(() => {
-    // console.log("callback");
-    // setCount(++count);
-    setName(count);
-  }, [count]);
-
-  function changeName() {
-    setName("new name " + Date.now());
-  }
 
   return (
     <div className="App">
-      <br />
-      {/* <button onClick={changeName}>change name</button> */}
-      {/* <button onClick={memoizedCallback}>change count</button> */}
-      {/* <Child count={count} onClick={memoizedCallback} /> */}
-      {/* <p>This name is {name}</p>
-      <div className="bgBox"></div> */}
-
-      <VirtualList />
+      <Suspense fallback={<div>Loading...</div>}>{<OtherComponent />}</Suspense>
+      {/* <br />
+      <div className="bgBox"></div>
+      <br /> */}
+      {/* <EventLoop /> */}
+      {/* <UseHooks /> */}
+      {/* <VirtualList /> */}
     </div>
   );
 }
