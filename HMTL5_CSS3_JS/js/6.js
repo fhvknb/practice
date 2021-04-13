@@ -111,6 +111,6 @@ o.subscribe(f2);
 o.update("Tom回来了！");
 
 //退订f1
-// o.unsubscribe(f1);
+o.unsubscribe(f1);
 //再来验证
-// o.update("Tom回来了！");
+o.update("Tom回来了！");

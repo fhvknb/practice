@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      .container {
+        height: 100vh;
+        background-color: var(--bg, #fff);
+      }
+
+      :root {
+        --bg: aquamarine;
+      }
+
+      :root[theme="dark"] {
+        --bg: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="theme"></div>
+
+      <button id="btn">CHANGE THEME</button>
+    </div>
+
+    <script>
+      var theme = "white";
+      var target = document.getElementById("btn");
+      var t = document.getElementById("theme");
+      t.innerText = theme;
+      target.addEventListener("click", (e) => {
+        theme = theme === "white" ? "black" : "white";
+        if (document.documentElement.hasAttribute("theme")) {
+          document.documentElement.removeAttribute("theme");
+        } else {
+          document.documentElement.setAttribute("theme", "dark");
+        }
+
+        t.innerText = theme;
+      });
+    </script>
+  </body>
+</html>
