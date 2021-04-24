@@ -6,6 +6,8 @@ import "./App.css";
 import UseHooks from "./components/useHooks";
 import EventLoop from "./components/eventLoop";
 
+// import TIM from './utils/tim_wx';
+
 // const VirtualList = React.lazy(() => import("./components/virtualList"));
 
 const OtherComponent = React.lazy(() => {
