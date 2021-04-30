@@ -2,15 +2,13 @@ package com.xzy.tankgame_1;
 
 public class Hero extends  Tank{
 
-    Shot shot = null;
     public Hero(int x, int y) {
         super(x, y);
     }
 
-
     public void fire() {
 
-
+        Shot shot = null;
         switch(getDirect()) {
 
             case 0:
@@ -29,6 +27,7 @@ public class Hero extends  Tank{
 
                 break;
         }
+        shots.add(shot);
 
         new Thread(shot).start();
 

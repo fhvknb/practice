@@ -1,11 +1,27 @@
 package com.xzy.tankgame_1;
 
+import java.util.Vector;
+
 public class Tank {
 
     private int x;
     private int y;
+    private int type;
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
     private int direct;  // 0, 1, 2, 3
     private int speed = 4;
+
+    boolean isAlive = true;   // 是否存活
+    Vector<Shot> shots = new Vector<>();   // 坦克子弹
+
     public void moveUp() {
         y -= speed;
     }
