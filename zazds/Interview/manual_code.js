@@ -7,25 +7,27 @@ Function.prototype.myCall = function (context) {
     let args = [];
 
     for (let i = 1; i < arguments.length; i++) {
-        args.push('arguments[' + i + ']');
+        // args.push('arguments[' + i + ']');
+        args.push(arguments[i]);
     }
 
-    // console.log(args);
-    context.fn;
-    eval('context.fn(' + args + ')');
+    // eval('context.fn(' + args + ')');
+    context.fn(...args);
     delete context.fn;
 };
 
 const obj = {
-    name2: 'wang',
+    name: 'wang',
 };
 
 function testMycall(name) {
     console.log(name);
-    console.log(this.name2);
+    console.log(this.name);
 }
 
-// testMycall.myCall(obj, 'xiang');
+testMycall.myCall(obj, 'xiang');
+
+console.log('=======')
 
 // 手动bind 函数
 Function.prototype.bind2 = function (context) {
@@ -37,9 +39,9 @@ Function.prototype.bind2 = function (context) {
         let args2 = Array.prototype.slice.call(arguments);
 
         let args = args1.concat(args2);
-        console.log(args);
+        // console.log(args);
 
-        that.apply(that2, args);
+        return that.apply(that2, args);
     };
 
     bindFn.prototype = Object.create(this.prototype);
@@ -50,20 +52,27 @@ Function.prototype.bind2 = function (context) {
     return bindFn;
 };
 
-function fn1(s) {
-    this.b = 1;
+var one = {
+    name: 'Bob',
+    say: function(greet) {
+        return greet + ',' + this.name
+    }
 }
 
-function fn2(s) {
-    this.a = '2';
-    console.log(this);
-    console.log(this.prototype);
+var two = {
+    name: 'Simith'
 }
 
-// var t = fn2.bind(fn1, 'test');
+var twosay1 = one.say.bind2(two);
+var twosay2 = one.say.bind2(two, 'DiDaDiDa');
 
-var t2 = fn2.bind2(fn1, 'test');
+// console.log(one.say('Hello'));
 
-// console.log(t());
-t2('xx');
-console.log(t2.prototype);
+// console.log(one.say.apply(two, ['Hi']));
+
+console.log(twosay1('HaHa'));
+console.log(twosay2());
+
+
+
+

@@ -31,26 +31,101 @@
 
 
 
-var SingleInstance = (function(){
+// var SingleInstance = (function(){
+//     var instance;
+//     function init() {
+//         return {
+//             publiceMethod: () => {},
+//             publiceProperty: 'test'
+//         }
+//     }
+
+//     return {
+//         getInstance: function() {
+
+//             if(!instance) {
+//                 instance = init();
+//             }else {
+//                 return instance;
+//             }
+//         }
+//     }
+// })();
+
+
+// function Universe() {
+//     var instance = this;
+
+//     this.start_time = 0;
+//     this.name = 'Bob';
+
+//     Universe = function() {
+//         return instance;
+//     }
+// }
+
+
+// function Universe() {
+//     var instance;
+
+//     Universe = function() {
+//         return instance;
+//     }
+
+//     Universe.prototype = this;
+
+//     instance = new Universe();
+
+//     instance.constructor = Universe;
+
+//     instance.start_time = 0;
+//     instance.name = 'Bob';
+
+//     return instance;
+// }
+
+var Universe;
+
+void (function(){
     var instance;
-    function init() {
-        return {
-            publiceMethod: () => {},
-            publiceProperty: 'test'
+
+    Universe = function Universe() {
+
+        if(instance) {
+            return instance;
         }
+
+        instance = this;
+
+        this.start_time = 0;
+        this.name = 'Bob';
     }
 
-    return {
-        getInstance: function() {
 
-            if(!instance) {
-                instance = init();
-            }else {
-                return instance;
-            }
-        }
-    }
 })()
+
+
+
+
+Universe.prototype.isGood = true;
+
+var uni1 = new Universe();
+// console.log(uni1.isGood);
+
+Universe.prototype.isHaa = 'HaHa';
+var uni2 = new Universe();
+console.log(uni2.isGood);
+
+console.log(uni1.isHaa);
+console.log(uni2.isHaa);
+
+// console.log(uni1 === uni2);
+
+
+
+
+
+
 
 
 
