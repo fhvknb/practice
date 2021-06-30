@@ -86,6 +86,13 @@ paper.daily();
 paper.monthly();
 
 
+setTimeout(() => {
+	console.log('///////');
+}, 5000);
+
+console.log('sssss')
+
+
 
 
 

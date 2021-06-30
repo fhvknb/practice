@@ -1,5 +1,5 @@
 class TreeNode:
-    def __init__(self, val):
+    def __init__(self, val) -> None:
         self.val = val
         self.left, self.right = None, None
 
@@ -11,12 +11,12 @@ class TreeNode:
 
     def inorder(self, root):
         if root:
-            self.inorder(root.left)
+            self.inorder(self.left)
             self.traverse_path.append(root.val)
-            self.inorder(root.right)
+            self.inorder(self.right)
 
     def postorder(self, root):
         if root:
-            self.postorder(root.left)
-            self.postorder(root.right)
-            self.traverse_path.append(root.val)
+            self.postorder(self.left)
+            self.postorder(self.right)
+            self.traverse_path.append(self.val)
