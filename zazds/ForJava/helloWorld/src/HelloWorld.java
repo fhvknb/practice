@@ -1,5 +1,8 @@
 import org.junit.jupiter.api.Test;
 
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+
 public class HelloWorld {
     public static void main(String[] args) {
         System.out.println("Hello World!");
@@ -29,6 +32,22 @@ public class HelloWorld {
         System.out.println(Season.SUMMER);
     };
 
+    @Test
+    public void test() {
+
+//        DecimalFormat decimalFormat = new DecimalFormat("0.00");
+//        System.out.println("====");
+//        String result = decimalFormat.format((float)5/2);
+//        System.out.println(result);
+
+        ArrayList<String> arr = new ArrayList<>();
+        arr.add("xiang");
+        arr.add("CHAO");
+        System.out.println(arr.size());
+
+        arr.remove(arr.size() - 1);
+        System.out.println(arr);
+    }
 
 }
 
