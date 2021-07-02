@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Joks</title>
+
+        <style>
+            html,
+            body {
+                padding: 0;
+                margin: 0;
+            }
+            .bg {
+                overflow: hidden;
+                background-color: #c7edcc;
+            }
+            .bg p {
+                padding: 0 20px;
+            }
+            .bg h3 {
+                padding: 0 20px;
+            }
+            .bg h3 > span {
+                font-weight: normal;
+                font-size: 13px;
+                color: palevioletred;
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root" class="bg"></div>
+        <script type="module">
+            import jokes from './js/jokes_data.js'
+
+            // let fragment = document.createDocumentFragment();
+            // console.log(fragment)
+            let content = ''
+            for (let i = 0, len = jokes.length; i < len; i++) {
+                // fragment.append(jokes[i].content)
+                content +=
+                    getTitle(jokes[i].title, jokes[i].tags) +
+                    jokes[i].content +
+                    '<br />'
+            }
+
+            document.getElementById('root').innerHTML = content
+            // console.log(jokes)
+
+            function getTitle(title, tag) {
+                return '<h3>' + title + getTag(tag) + '</h3>'
+            }
+
+            function getTag(tag) {
+                return '<span>' + tag + '</span>'
+            }
+        </script>
+    </body>
+</html>
