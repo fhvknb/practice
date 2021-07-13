@@ -42,7 +42,7 @@ var plus = curry(function () {
   return result;
 }, 2);
 
-// console.log(plus(3)()()(3));
+console.log(plus(3)()()(3));
 
 var scareMe = function () {
   alert("Boo!");
@@ -73,9 +73,9 @@ var spooky = {
 
 // console.log(prank.property); // "properly"
 // // 使用方法进行调用
-spooky.boo(); // "Boo!"
-spooky.boo(); // "Boo!"
-console.log(spooky.boo.property); // "properly"
+// spooky.boo(); // "Boo!"
+// spooky.boo(); // "Boo!"
+// console.log(spooky.boo.property); // "properly"
 
 // scareMe(); //  boo!
 // scareMe(); // Double boo!

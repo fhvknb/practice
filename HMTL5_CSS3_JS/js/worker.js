@@ -14,5 +14,6 @@ myWorker.onmessage = (e) => {
 
 console.log("页面加载完毕");
 
+
 console.log("1111");
 
