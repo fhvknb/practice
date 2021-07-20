@@ -1,22 +1,22 @@
 {
-  "name": "hello-ts",
+  "name": "trainingforts",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "yarn run watch-node && yarn run watch-ts",
-    "watch-ts": "tsc --watch",
-    "watch-node": "nodemon ./dist/index.js  --watch"
+    "start": "tsc-watch --onsuccess \"node dist/index.js\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {},
   "devDependencies": {
-    "@types/jest": "^25.2.1",
-    "jest": "^24.7.1",
-    "ts-jest": "^24.0.2",
-    "typescript": "^3.8.3"
+    "@types/debug": "^4.1.6",
+    "debug": "^4.1.1",
+    "tsc-watch": "^2.1.2",
+    "typescript": "^3.5.1"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2"
   }
 }

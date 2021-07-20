@@ -1,11 +1,16 @@
 {
     "compilerOptions": {
-        "target":"es5",
+        "target": "es5",
         "outDir": "./dist",
         "rootDir": "./src",
-        "module":"CommonJS",
-        "noEmitOnError": true,
-        "lib": ["ES5", "DOM", "ES2015.Collection"],
-        "sourceMap": true
-    } 
+        // "allowJs": true,
+        // "checkJs": true,
+        // "baseUrl": ".",
+        // "paths": {
+        //     "*": [
+        //         "types/*"
+        //     ]
+        // }
+        "declaration": true
+    }
 }

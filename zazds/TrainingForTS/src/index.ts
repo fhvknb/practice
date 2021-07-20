@@ -1,35 +1,9 @@
+import { coastFormatter, writeMessage } from './formatter.js'
+import debug from 'debug';
+import chalk from 'chalk';
 
-// import calc from './calc';
+console.log('Hello TypeScript!!!')
 
-// let printMessage = (msg: string): void => console.log(`Message: ${msg}.`);
-
-console.clear();
-
-
-// console.log('hello typescript!');
-// printMessage('This is a message!');
-// printMessage('Today is a wonderful day!');
-// let data = new Map();
-
-// data.set("Alice", "ChongQing");
-// data.set("Bob", 'ShenZhen');
-// data.forEach((val, key) => console.log(`${key} lives ${val}.`));
-
-// let calcResult = calc(1, 2, 3, 4, 5, 6, 7, 8, 9);
-// console.log('Result: ' + calcResult);
-
-
-// interface Cat {
-//     [propName: string]: any
-// }
-
-// let newCat: Cat = {
-//     name: 'x',
-//     age: 12,
-//     height: 1000
-// }
-
-// console.log(newCat)
 
 
 function identity<T>(arg: T): T {
@@ -150,6 +124,47 @@ type myExclude<T, U> = T extends U ? never : T;
 // 提取出 T 包含在 U 中的元素
 type myExtract<T, U> = T extends U ? T : never;
 
+console.log('===============');
+function calcTax(amount: number, format: boolean): string | number {
+    const clacAmount = amount * 1.2;
+    return format ? `$${clacAmount.toFixed(2)}` : clacAmount
+}
+/* 断言 */
+let taxNumber: number = calcTax(100, false) as number;
+let taxString: string = calcTax(100, true) as string;
+let taxBoolean: boolean = calcTax(100, false) as any as boolean;
 
 
+// console.log(`Number Value: ${taxNumber.toFixed(2)}`);
+// console.log(`String Value: ${taxString.charAt(0)}`);
+// console.log(`Boolean Value: ${taxBoolean}`);
 
+let taxValue = calcTax(100, false);
+switch (typeof taxValue) {
+    case "number":
+        console.log(`Number Value: ${taxNumber.toFixed(2)}`);
+
+        break;
+    case "string":
+        console.log(`String Value: ${taxString.charAt(0)}`);
+        break
+    default:
+        let value: never = taxValue;
+        console.log(`Unexcept type for value: ${value}`);
+}
+
+
+console.log("================");
+coastFormatter("Car", 100);
+
+writeMessage('哈哈哈哈');
+writeMessage('13123131');
+
+let db = debug("Example App");
+db.enabled = true;
+db("Message: %0", "Test message.");
+db.destroy();
+
+
+console.log(chalk.yellowBright("Formatted message", "123123"))
+// console.log(chalk.noAColor("Formatted message"))
