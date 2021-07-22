@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { StoreData } from "../data/types";
-import { Order, Product } from "../data/entities";
+import { Order, } from "../data/entities";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 
@@ -32,7 +32,7 @@ const OrderDetail: FC<Props> = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {props.order.orderLines.map((line: { product: Product, total: number, quantity: number }) =>
+                    {props.order.orderLines.map((line) =>
                         <tr key={line.product.id}>
                             <td>{line.quantity}</td>
                             <td>{line.product.name}</td>
