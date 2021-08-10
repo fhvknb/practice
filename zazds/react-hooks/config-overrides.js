@@ -6,28 +6,29 @@
  */
 
 const {
-  injectBabelPlugin,
-  getLoader,
-  getBabelLoader,
-} = require("react-app-rewired");
+    injectBabelPlugin,
+    getLoader,
+    getBabelLoader,
+} = require('react-app-rewired')
 
-const path = require("path");
+const path = require('path')
 
 function resolve(dir) {
-  return path.join(__dirname, ".", dir);
+    return path.join(__dirname, '.', dir)
 }
 
 module.exports = {
-  webpack: function (config, env) {
-    // 别名
-    config.resolve.alias = {
-      "@": resolve("src"),
-    };
-    config.externals = {
-      jquery: "jQuery",
-      react: "React",
-      "react-dom": "ReactDOM",
-    };
-    return config;
-  },
-};
+    webpack: function (config, env) {
+        // 别名
+        config.resolve.alias = {
+            '@': resolve('src'),
+        }
+        config.externals = {
+            jquery: 'jQuery',
+            react: 'React',
+            'react-dom': 'ReactDOM',
+        }
+        config.output.publicPath = 'https://cdn.zazds.top/'
+        return config
+    },
+}
