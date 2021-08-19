@@ -1,0 +1,195 @@
+
+.my-step-wrap {
+  display: flex;
+}
+.step-item {
+  flex: 1;
+}
+
+.step-mark {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 0;
+}
+.step-mark .step {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  z-index: 9;
+  box-sizing: border-box;
+  border: 2px solid #000;
+}
+
+/* 进行中样式 */
+
+.step-mark.head::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: #c0c4cc;
+  top: 50%;
+  left: 50%;
+  right: 0;
+  margin-top: 1px;
+}
+.step-mark.head.done::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: #409eff;
+  top: 50%;
+  left: 50%;
+  right: 0;
+  margin-top: 1px;
+}
+.step-mark.head.done.done2::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: #c0c4cc;
+  top: 50%;
+  left: 50%;
+  right: 0;
+  margin-top: 1px;
+}
+
+.step-mark.last::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: #c0c4cc;
+  top: 50%;
+  right: 50%;
+  left: 0;
+  margin-top: 1px;
+}
+
+.step-mark.last.done::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: #409eff;
+  top: 50%;
+  right: 50%;
+  left: 0;
+  margin-top: 1px;
+}
+
+.step-mark.inner::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: #c0c4cc;
+  top: 50%;
+  left: 50%;
+  right: 0;
+  margin-top: 1px;
+}
+
+.step-mark.inner::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: #c0c4cc;
+  top: 50%;
+  right: 50%;
+  left: 0;
+  margin-top: 1px;
+}
+
+.step-mark.inner.done::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: #409eff;
+  top: 50%;
+  right: 50%;
+  left: 0;
+  margin-top: 1px;
+}
+
+.step-mark.inner.done::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: #409eff;
+  top: 50%;
+  left: 50%;
+  right: 0;
+  margin-top: 1px;
+}
+.step-mark.inner.done.done2::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: #c0c4cc;
+  top: 50%;
+  left: 50%;
+  right: 0;
+  margin-top: 1px;
+}
+
+.checked .step-mark .step {
+  background: #000;
+  color: #fff;
+}
+
+.my-step-wrap .title {
+  font-size: 16px;
+}
+
+.my-step-wrap .desc {
+  font-size: 12px;
+}
+
+/*  end  */
+
+/* 完成样式 begin */
+.is-finished .step-mark .step {
+  border: 2px solid #409eff;
+  color: #409eff;
+}
+
+.is-finished.checked .step-mark .step {
+  background: #409eff;
+  color: #fff;
+}
+
+.my-step-wrap .is-finished .title {
+  color: #409eff;
+}
+
+.my-step-wrap .is-finished .desc {
+  color: #409eff;
+}
+/* 完成样式 end */
+
+/* 等待中样式 begin */
+
+/* 等待中样式 end */
+
+.is-waiting .step-mark .step {
+  border: 2px solid #c0c4cc;
+  color: #c0c4cc;
+}
+
+.is-waiting.checked .step-mark .step {
+  background: #c0c4cc;
+  color: #fff;
+}
+.is-waiting.checked .step-mark .step {
+  background: #c0c4cc;
+  color: #fff;
+}
+
+.my-step-wrap .is-waiting .title {
+  color: #c0c4cc;
+}
+
+.my-step-wrap .is-waiting .desc {
+  color: #c0c4cc;
+}
