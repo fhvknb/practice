@@ -47,7 +47,7 @@ function App() {
         }
         const arr = [1, 3, 4]
 
-        for (let i in obj) {
+        for (let i in arr) {
             console.log(i)
         }
         for (let j of arr) {
