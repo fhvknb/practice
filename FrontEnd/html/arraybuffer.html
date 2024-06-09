@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>array buffer</title>
+    </head>
+    <body>
+        <script>
+            const bf = new ArrayBuffer(4); // 参数为　字节　数
+
+
+            // const view = new DataView(bf);
+
+            // view.setFloat32(0, 1);
+
+            const view = new Float32Array(bf)
+            view[0] = 1;
+
+            const bytes = new Uint8Array(view.buffer);
+
+            console.log(bytes);
+            let binaryString = '';
+             bytes.forEach((byte) => {
+                console.log(byte);
+                const b = byte.toString(2).padStart(8, '0');
+                console.log(b);
+                binaryString += b + ' ';
+            });
+
+            console.log(binaryString);
+
+
+        </script>
+    </body>
+</html>

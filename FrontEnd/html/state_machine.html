@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+    var parten = 'abababx';
+
+    function match_str(str) {
+            let _start = start;
+            for(let c of str){
+                console.log(c);
+                _start = _start(c);
+
+            }
+
+            return _start == end;
+    };
+
+
+    console.log(match_str("tmfh_ababx"));
+
+
+    function start(c){
+        if (c === 'a') {
+            return findA
+        }else {
+            return start;
+        }
+    };
+
+    function findA(c){
+        if (c === 'b') {
+            return findA1
+        }else {
+            return start;
+        }
+    }
+
+    function findA1(c){
+        if (c === 'a') {
+            return findB1
+        }else {
+            return start;
+        }
+    }
+
+    function findB1(c){
+        if (c === 'b') {
+            return findA2
+        }else {
+            return start;
+        }
+    }
+
+    function findA2(c){
+        if (c === 'a') {
+            return findB2
+        }else {
+            return start;
+        }
+    }
+
+    function findB2(c){
+        if (c === 'b') {
+            return findX
+        }else {
+            return start;
+        }
+    }
+
+    
+
+    function findX(c){
+        if (c === 'x') {
+            return end
+        }else {
+            return start;
+        }
+    }
+
+    function end(){
+        return end
+    }
+
+    </script>
+
+</body>
+</html>
